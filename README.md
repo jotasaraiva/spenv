@@ -1,4 +1,4 @@
-# spenv - Spectral Envelope for Python
+# spenv — Spectral Envelope for Python
 
 The `spenv` package is an implementation of a few spectral analysis functions from the [`{astsa}`](https://github.com/nickpoison/astsa) package for R, based on the eighth chapter of [Time Series Analysis and Its Applications with R Examples](https://www.stat.pitt.edu/stoffer/tsa4/). The main objective of this package is to provide functions for the application of the **Spectral Envelope** as described and demonstrated in the book.
 
@@ -14,6 +14,6 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ### Credits
 
-`spenv` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
-Spectral analysis functions adapted from https://github.com/kircherlab/cfDNA.
+- `spenv` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+- Spectral analysis functions adapted from https://github.com/kircherlab/cfDNA.
 
