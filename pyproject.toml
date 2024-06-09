@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "spenv"
-version = "0.1.0"
+version = "0.1.1"
 description = "Spectral Envelope for Python"
 authors = ["João Pedro Saraiva"]
 license = "MIT"
