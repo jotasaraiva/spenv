@@ -338,7 +338,7 @@ def spec_opt(x, *args, as_series = False):
     x = np.array(x).flatten()
     xdata = [x] + [i(x) for i in args]
     mat = np.stack(xdata, axis=1)
-    envelope = enpy.specenv(mat)
+    envelope = specenv(mat)
     b = envelope[envelope[:,1]==max(envelope[:,1]), 2:]
     opt = np.sum(mat*b, axis=1)
 
