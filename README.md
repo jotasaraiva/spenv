@@ -15,5 +15,5 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 ### Credits
 
 - `spenv` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
-- Spectral analysis functions adapted from https://github.com/kircherlab/cfDNA.
+- Spectral analysis functions adapted from [kircherlab/cfDNA](https://github.com/kircherlab/cfDNA).
 
