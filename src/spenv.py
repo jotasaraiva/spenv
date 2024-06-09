@@ -1,3 +1,6 @@
+from importlib.metadata import version
+__version__ = version("spenv")
+
 import numpy as np
 import pandas as pd
 from scipy import stats, signal, fft, linalg
@@ -7,7 +10,14 @@ def spec_taper(x, p=0.1):
         Apply a cosine-bell taper  to a time series.
         
         Computes a tapered version of x, with tapering proportion p at each end of x.
-    
+        
+        Parameters:
+                x (float): A univariate or multivariate time series
+                p (float): The proportion to be tapered at each end of the series, either a scalar (giving the proportion for all series) or a vector of the length of the number of series (giving the proportion for each series).
+
+        Return:
+                x (float): A new time series.
+
         Adapted from R's stats::spec.taper.
         """
         p = np.r_[p]
@@ -52,22 +62,23 @@ def mvspec(
     option_summary=False,
     **kwargs
 ):
-    """Computes the spectral density estimate using a periodogram.
+    """
+    Computes the spectral density estimate using a periodogram.
 
-    Args:
-        x (numpy array): Univariate or multivariate time series.
-        xfreq (optional): Number of samples per unit time. Defaults to 1.
-        spans (optional): Sequence of spans for convoluted Daniell smoothers. Defaults to None.
-        kernel (optional): Defines Kernel for smoothing. Defaults to None.
-        taper (optional): Defines proportion for tapering start and end of series to avoud end-of-signal effects. Defaults to 0.1.
-        pad (optional): Pads the provided series before computation, adding pad*(length of series) zeros at the end. Defaults to 0.
-        fast (optional): [description]. Defaults to True.
-        demean (optional): Demeans series. Defaults to False.
-        detrend (optional): Detrends series. Defaults to True.
-        minimal (optional): Returns only frequency and spectrum. Overrides option_summary. Defaults to True.
-        option_summary (optional): Returns specified options alongside results. Defaults to False.
+    Parameters:
+            x (numpy array): Univariate or multivariate time series.
+            xfreq (optional): Number of samples per unit time. Defaults to 1.
+            spans (optional): Sequence of spans for convoluted Daniell smoothers. Defaults to None.
+            kernel (optional): Defines Kernel for smoothing. Defaults to None.
+            taper (optional): Defines proportion for tapering start and end of series to avoud end-of-signal effects. Defaults to 0.1.
+            pad (optional): Pads the provided series before computation, adding pad*(length of series) zeros at the end. Defaults to 0.
+            fast (optional): [description]. Defaults to True.
+            demean (optional): Demeans series. Defaults to False.
+            detrend (optional): Detrends series. Defaults to True.
+            minimal (optional): Returns only frequency and spectrum. Overrides option_summary. Defaults to True.
+            option_summary (optional): Returns specified options alongside results. Defaults to False.
 
-    Adapted from R's stats::spec.pgram and astsa::mvspec from Time Series Analysis and Its Applications.
+    Adapted from R's astsa::mvspec and the spec_pgram function in https://github.com/kircherlab/cfDNA.
     """
 
     def daniell_window_modified(m):
@@ -279,6 +290,8 @@ def specenv(
 ):
   
   """
+  Spectral envelope of real-valued time series.
+
   Computes the Spectral Envelope as described in Time Series Analysis and 
   Its Applications with R Examples and the R package ASTSA.
   """  
@@ -318,9 +331,9 @@ def spec_opt(x, *args, as_series = False):
     """
     Automatically smoothes a time series using the Spectral Envelope method.
 
-    Args:
-        x (numpy array): Univariate time series.
-        *args (optional): Mapping functions for the Spectral Envelope.
+    Parameters:
+            x (numpy array): Univariate time series.
+            *args (optional): Mapping functions for the Spectral Envelope.
     """
     x = np.array(x).flatten()
     xdata = [x] + [i(x) for i in args]

@@ -1,6 +1,6 @@
 # spenv — Spectral Envelope for Python
 
-The `spenv` package is an implementation of a few spectral analysis functions from the [`{astsa}`](https://github.com/nickpoison/astsa) package for R, based on the eighth chapter of [Time Series Analysis and Its Applications with R Examples](https://www.stat.pitt.edu/stoffer/tsa4/). The main objective of this package is to provide functions for the application of the **Spectral Envelope** as described and demonstrated in the book.
+The `spenv` module is an implementation of a few spectral analysis functions from the [`{astsa}`](https://github.com/nickpoison/astsa) package for R, based on the eighth chapter of [Time Series Analysis and Its Applications with R Examples](https://www.stat.pitt.edu/stoffer/tsa4/). The main objective of this module is to provide functions for the application of the **Spectral Envelope** as described and demonstrated in the book.
 
 ## Installation
 
